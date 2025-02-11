@@ -25,7 +25,7 @@ let frameCount = 30;
 let loadedFrames = 0;
 let lastLoadedFrames = 0;
 
-let controls = new DeviceOrientationControls(camera);
+let controls = null;
 
 
 //NOTE: LOADER
@@ -159,6 +159,7 @@ window.addEventListener("mousedown", function(e) {
 			playing = true;
 			music.play();
 			soundIcon.classList.add("display");
+			controls = new DeviceOrientationControls(camera);
 		}
 
 
@@ -230,7 +231,9 @@ function animate(time) {
 	let deltaTime = time - lastFrameTime;
 	lastFrameTime = time;
 
-	controls.update();
+	if (controls !== null) {
+		controls.update();
+	}
 
 	if (playing) {
 
