@@ -291,7 +291,7 @@ function animate(time) {
 
 
 window.addEventListener("resize", OnWindowResize);
-window.addEventListener("deviceorientation", OnDeviceTilt);
+//window.addEventListener("deviceorientation", OnDeviceTilt);
 
 //renderer.setAnimationLoop(animate);
 
