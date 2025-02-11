@@ -1,7 +1,7 @@
 
 
 import * as THREE from 'three';
-import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js'
+import { DeviceOrientationControls } from './DeviceOrientationControls.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 
@@ -25,6 +25,7 @@ let frameCount = 30;
 let loadedFrames = 0;
 let lastLoadedFrames = 0;
 
+let controls = new DeviceOrientationControls(camera);
 
 
 //NOTE: LOADER
@@ -99,9 +100,9 @@ let cube = new THREE.Mesh(geometry, material);
 cube.position.z = -10;
 
 
-let controls = new PointerLockControls(camera, renderer.domElement);
-controls.minPolarAngle = Math.PI / 10;
-controls.maxPolarAngle = Math.PI;
+//let controls = new PointerLockControls(camera, renderer.domElement);
+//controls.minPolarAngle = Math.PI / 10;
+//controls.maxPolarAngle = Math.PI;
 
 
 
@@ -162,24 +163,48 @@ window.addEventListener("mousedown", function(e) {
 
 
 		if (e.target === canvas) {
-			controls.lock();
+			//controls.lock();
 		}
 	}
 });
 
 window.addEventListener("mouseup", function() {
-	controls.unlock();
+	//controls.unlock();
 });
 
 window.addEventListener("touchstart", function() {
-	controls.lock();
+	//controls.lock();
 });
 
 window.addEventListener("touchend", function() {
-	controls.unlock();
+	//controls.unlock();
 
 });
 
+
+//function OnDeviceTilt(e) {
+//
+//	console.log(e);
+//
+//
+//	if (playing) {
+//		if ('beta' in e && e.beta !== null) {
+//			console.log(e.beta);
+//			camera.rotation.x = -(-(Math.PI / 2) + ((e.beta * Math.PI) / 180));
+//		}
+//
+//		if ('gamma' in e && e.gamma !== null) {
+//			console.log(e.gamma);
+//			//camera.rotation.y = -(-(Math.PI / 2) + ((e.gamma * Math.PI) / 180));
+//		}
+//
+//
+//		if ('alpha' in e && e.alpha !== null) {
+//			console.log(e.alpha);
+//			//camera.rotation.y = (-(Math.PI / 2) + ((e.alpha * Math.PI) / 180));
+//		}
+//	}
+//}
 
 
 function OnWindowResize(e) {
@@ -204,6 +229,8 @@ function animate(time) {
 
 	let deltaTime = time - lastFrameTime;
 	lastFrameTime = time;
+
+	controls.update();
 
 	if (playing) {
 
@@ -264,6 +291,7 @@ function animate(time) {
 
 
 window.addEventListener("resize", OnWindowResize);
+window.addEventListener("deviceorientation", OnDeviceTilt);
 
 //renderer.setAnimationLoop(animate);
 

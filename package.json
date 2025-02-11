@@ -5,6 +5,7 @@
   "scripts": {
     "test": "test",
     "server": "npx vite",
+    "server-host": "npx vite --host",
     "build": "npx vite build"
   },
   "author": "",
