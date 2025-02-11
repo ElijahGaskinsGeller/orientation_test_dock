@@ -1,0 +1,1 @@
+body{margin:0;overflow:hidden}canvas{overflow:clip;overflow-clip-margin:content-box}#music-icons{position:absolute;width:50px;height:50px;right:10px;top:10px}#music-icons button{width:50px;height:50px;position:absolute;background:none;padding:0;display:none;cursor:pointer;border:none}#music-icons button img{width:50px;height:50px}.display{display:block!important}
