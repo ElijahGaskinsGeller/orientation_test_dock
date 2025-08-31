@@ -6,7 +6,6 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 
 
-//TODO: CHANGE FIREFOX TO SAFARI
 //let isSafari = (window.navigator.userAgent.indexOf("Firefox") > -1) || (window.navigator.userAgent.indexOf("Chrome") > -1);
 let isSafari = window.navigator.userAgent.indexOf("Safari") > -1;
 
