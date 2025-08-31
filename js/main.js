@@ -7,7 +7,9 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 
 
 //let isSafari = (window.navigator.userAgent.indexOf("Firefox") > -1) || (window.navigator.userAgent.indexOf("Chrome") > -1);
-let isSafari = window.navigator.userAgent.indexOf("Safari") > -1;
+let ua = window.navigator.userAgent;
+let isSafari = (ua.indexOf("iPad") > -1 || ua.indexOf("iPhone") > -1 || ua.indexOf("Macintosh")) && (ua.indexOf("Safari") > -1) && ((ua.indexOf("CriOS") === -1) && (ua.indexOf("FxiOS") === -1));
+
 
 if (!isSafari) {
 
@@ -336,6 +338,7 @@ if (!isSafari) {
 	let copyLink = document.getElementById("copy-link");
 	let copyFunction = function() {
 
+		alert(window.navigator.userAgent)
 
 		navigator.clipboard.writeText(window.location.href).then(
 			function() {
