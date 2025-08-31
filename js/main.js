@@ -8,7 +8,14 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 
 //let isSafari = (window.navigator.userAgent.indexOf("Firefox") > -1) || (window.navigator.userAgent.indexOf("Chrome") > -1);
 let ua = window.navigator.userAgent;
-let isSafari = (ua.indexOf("iPad") > -1 || ua.indexOf("iPhone") > -1 || ua.indexOf("Macintosh")) && (ua.indexOf("Safari") > -1) && ((ua.indexOf("CriOS") === -1) && (ua.indexOf("FxiOS") === -1));
+let isAppleDevice = (ua.indexOf("iPad") > -1 || ua.indexOf("iPhone") > -1 || ua.indexOf("Macintosh") > -1);
+let saysSafari = (ua.indexOf("Safari") > -1);
+let isNotPreferedBrowser = ((ua.indexOf("Chrome") === -1) && (ua.indexOf("CriOS") === -1) && (ua.indexOf("FxiOS") === -1));
+let isSafari = isAppleDevice && saysSafari && isNotPreferedBrowser;
+
+alert("is apple: " + isAppleDevice);
+alert("says safari: " + saysSafari);
+alert("not prefered browser: " + isNotPreferedBrowser);
 
 
 if (!isSafari) {
