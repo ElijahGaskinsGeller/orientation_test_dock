@@ -47,3 +47,49 @@ canvas {
         display: block !important;
 
 }
+
+#wrong-browser-wrapper {
+
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-top: 25vh;
+
+        width: 100vw;
+        /*height: 100vh;*/
+
+}
+
+#text-wrapper {
+
+        margin: auto;
+        padding-left: 5vw;
+
+        padding-right: 50px;
+        padding-bottom: 100px;
+
+}
+
+#copy-link {
+
+        width: 400px;
+        min-height: 250px;
+        margin: auto;
+
+        border-radius: 50px;
+
+        font-size: 50pt;
+
+}
+
+#wrong-browser-wrapper p {
+        margin: 0;
+        margin-bottom: 3px;
+        font-size: 30pt;
+}
+
+.hidden {
+
+        display: none !important;
+
+}
