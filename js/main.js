@@ -13,9 +13,9 @@ let saysSafari = (ua.indexOf("Safari") > -1);
 let isNotPreferedBrowser = ((ua.indexOf("Chrome") === -1) && (ua.indexOf("CriOS") === -1) && (ua.indexOf("FxiOS") === -1));
 let isSafari = isAppleDevice && saysSafari && isNotPreferedBrowser;
 
-alert("is apple: " + isAppleDevice);
-alert("says safari: " + saysSafari);
-alert("not prefered browser: " + isNotPreferedBrowser);
+//alert("is apple: " + isAppleDevice);
+//alert("says safari: " + saysSafari);
+//alert("not prefered browser: " + isNotPreferedBrowser);
 
 
 if (!isSafari) {
@@ -345,14 +345,15 @@ if (!isSafari) {
 	let copyLink = document.getElementById("copy-link");
 	let copyFunction = function() {
 
-		alert(window.navigator.userAgent)
+		//alert(window.navigator.userAgent)
 
 		navigator.clipboard.writeText(window.location.href).then(
 			function() {
 				copyLink.innerText = "Link Coppied!"
 			},
 			function() {
-				alert("not coppied");
+				copyLink.innerText = "Link Not Coppied. Please Try Again"
+				//alert("not coppied");
 			}
 		);
 
